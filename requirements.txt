@@ -1,0 +1,6 @@
+pandas
+openpyxl
+pytest
+black
+flake8
+ruff
