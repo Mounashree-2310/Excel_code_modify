@@ -14,3 +14,4 @@ def test_ticket_null_replacement():
     )
 
     assert df["TICKET"][0] == "NULL"
+    
