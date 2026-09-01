@@ -94,15 +94,14 @@ class ExcelReport:
 
 def main():
     report = ExcelReport(
-        "failuresClassifications_MGU22_03-08-2026-10-08-2026.xlsx",
-        "Irregular_Test_Failures.xlsx",
+    "failuresClassifications_MGU22_03-08-2026-10-08-2026.xlsx",
+    r"C:\Users\40054007\OneDrive - LTTS\ExcelReports\Irregular_Test_Failures.xlsx",
     )
 
     count = report.generate_report()
 
     print("Report Generated Successfully")
     print(f"Total Irregular Failures: {count}")
-
 
 if __name__ == "__main__":
     main()
