@@ -99,7 +99,6 @@ def main():
     )
 
     count = report.generate_report()
-
     print("Report Generated Successfully")
     print(f"Total Irregular Failures: {count}")
 
