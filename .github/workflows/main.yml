@@ -1,0 +1,37 @@
+name: Excel Automation
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run Excel Script
+        run: |
+          python main.py
+
+      - name: Notify Power Automate
+        run: |
+          curl -X POST "${{ secrets.POWER_AUTOMATE_URL }}" \
+          -H "Content-Type: application/json" \
+          -d '{
+            "repository":"Excel_code_modify",
+            "report":"Irregular_Test_Failures.xlsx",
+            "status":"Success"
+          }'
