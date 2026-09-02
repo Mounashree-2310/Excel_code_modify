@@ -3,6 +3,7 @@ from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 
 
+
 class ExcelReport:
     def __init__(self, input_file, output_file):
         self.input_file = input_file
