@@ -1,6 +1,6 @@
 import pandas as pd
 from openpyxl import load_workbook
-from openpyxl.styles import Font, PatternFill, Alignment
+from openpyxl.styles import Alignment, Font, PatternFill
 
 
 class ExcelReport:
@@ -52,7 +52,6 @@ class ExcelReport:
         # Header formatting
         for cell in ws[1]:
             cell.font = Font(bold=True)
-
             cell.fill = PatternFill(
                 start_color="D9EAF7",
                 end_color="D9EAF7",
@@ -93,14 +92,26 @@ class ExcelReport:
 
 
 def main():
+    input_file = (
+        "failuresClassifications_"
+        "MGU22_03-08-2026-10-08-2026.xlsx"
+    )
+
+    output_file = (
+        r"C:\Users\40054007\OneDrive - LTTS\ExcelReports"
+        r"\Irregular_Test_Failures.xlsx"
+    )
+
     report = ExcelReport(
-    "failuresClassifications_MGU22_03-08-2026-10-08-2026.xlsx",
-    r"C:\Users\40054007\OneDrive - LTTS\ExcelReports\Irregular_Test_Failures.xlsx",
+        input_file,
+        output_file,
     )
 
     count = report.generate_report()
+
     print("Report Generated Successfully")
     print(f"Total Irregular Failures: {count}")
+
 
 if __name__ == "__main__":
     main()
